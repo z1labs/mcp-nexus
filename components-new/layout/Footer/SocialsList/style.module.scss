@@ -1,0 +1,72 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.socials {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  &.isLight {
+    & > li {
+      & > a {
+        border-color: rgba(var(--black-rgb), .3) !important;
+        &:hover {
+          border-color: var(--black) !important;
+        }
+        img {
+          filter: brightness(0);
+        }
+      }
+      & > span svg {
+        stroke: var(--black);
+      }
+    }
+  }
+  & > li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    & > a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(#55F89F, .3);
+      &:hover {
+        border-color: var(--brand-cypher);
+      }
+    }
+    & > span {
+      cursor: pointer;
+    }
+    ul {
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      font-family: var(--font-geist);
+      font-size: .75rem;
+      line-height: 1.5;
+      li:not(:last-child) {
+        margin-bottom: 4px;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        &:hover {
+          color: var(--brand-cypher);
+        }
+      }
+    }
+  }
+  @include media($tablet) {
+    margin-top: 0;
+  }
+}

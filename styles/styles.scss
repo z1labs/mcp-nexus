@@ -1,0 +1,85 @@
+:root {
+  /* === === === === === */
+  /* FONTS */
+  /* === === === === === */
+  --font-main: 'Courier 10 Pitch', "Times New Roman", Times, serif;
+  --font-secondary: Nexa, Helvetica, Arial, sans;
+  --font-numbers: 'Digital Numbers', Helvetica, Arial, sans;
+  --font-plateia: Plateia, Helvetica, Arial, sans;
+  --font-fgm: FoundersGroteskMono, "Times New Roman", Times, serif;
+  --font-geist: Geist, Helvetica, Arial, sans-serif;
+  --font-geistmono: 'Geist Mono', Helvetica, Arial, sans-serif;
+  --font-alliance: "Alliance No.2", Helvetica, Arial, sans-serif;
+
+  /* === === === === === */
+  /* COLORS */
+  /* === === === === === */
+  /* Main Colors */
+  --white: #FFF;
+  --white-rgb: 255, 255, 255;
+  --black: #000;
+  --black-rgb: 0, 0, 0;
+  --grey: #9EA8BD;
+
+  --brand: #78FE7E;
+  --brand-rgb: 120, 254, 126;
+
+  --brand-cypher: #55F89F;
+
+  /* Elements */
+  --body-bg: #020E13;
+  --body-color: #FFF;
+  --body-bg-cypher: #0A0A0A;
+
+  --error: #EB2756;
+
+  /* Socials Colors */
+  --social-facebook: #4352A2;
+  --social-messenger: #00B2FF;
+  --social-telegram: #0088CC;
+  --social-linkedin: #2867B2;
+  --social-x: #0A99FD;
+  --social-google: #DD4B39;
+  --social-instagram: #E1306C;
+  --social-youtube: #FD0000;
+  --social-viber: #7360F2;
+  --social-pinterest: #E60023;
+  --social-tiktok: #4BE1EC;
+  --social-reddit: #FF4500;
+  --social-pocket: #EF4056;
+  --social-rss: #EA6221;
+  --social-discord: #7289DA;
+
+  /* === === === === === */
+  /* SETTINGS */
+  /* === === === === === */
+
+  /* Transitions */
+  --transition: all .25s ease-in-out;
+  --transition-long: all .45s ease-in-out;
+  --cubic-bezier: all .6s cubic-bezier(0.68, 0, 0.265, 1);
+  --ease-quint-out: cubic-bezier(0.23,1,0.32,1);
+  --animation-primary: 0.4s cubic-bezier(.85, 0, .15, 1);
+  --animation-smooth: 0.6s cubic-bezier(.5, 0, .25, 1);
+
+}
+
+/* Helpers */
+@import "./helpers/vars";
+@import "./helpers/mixins";
+
+/* Libs */
+@import "normalize.css/normalize";
+@import "react-loading-skeleton/dist/skeleton.css";
+@import "rc-collapse/assets/index";
+@import "react-datepicker/dist/react-datepicker.min";
+@import "~react-toastify/dist/ReactToastify.css";
+@import "@near-wallet-selector/modal-ui/styles.css";
+
+/* Base */
+@import "./base/fonts";
+@import "./base/base";
+
+/* Common */
+@import "./common/utilities";
+@import "./common/libraries";

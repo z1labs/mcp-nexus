@@ -1,0 +1,105 @@
+body {
+  // === === === === ===
+  // react-tooltip
+  // === === === === ===
+  --rt-color-dark: var(--body-bg);
+  --rt-color-white: var(--body-color);
+  --rt-opacity: 1;
+
+  .react-tooltip {
+    border-radius: 16px;
+    border: 2px solid transparent;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    z-index: 5;
+    text-transform: initial;
+    max-width: 290px;
+
+    &.small {
+      padding: 8px;
+      border-radius: 8px;
+      font-size: .75rem;
+      border-width: 1px;
+    }
+
+    &.withShadow {
+      box-shadow: 0 0 6px rgba(22, 242, 110, .15);
+    }
+
+    &.no-styles {
+      --rt-opacity: 1;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+  }
+
+  .react-tooltip-arrow {
+    border-style: solid;
+    border-color: var(--body-color);
+
+    &[style*="bottom"] {
+      border-width: 0 1px 1px 0;
+    }
+
+    &[style*="top"] {
+      border-width: 1px 0 0 1px;
+    }
+  }
+
+  // === === === === ===
+  // react-tooltip
+  // === === === === ===
+  .react-loading-skeleton {
+    --base-color: #181818;
+    --highlight-color: #222;
+  }
+
+  .slick-dots {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    [class="slick-active"] button {
+      border-color: var(--brand-cypher);
+      &:before {
+        opacity: 1;
+      }
+    }
+    button {
+      width: 24px;
+      aspect-ratio: 1;
+      padding: 0;
+      font-size: 0;
+      background-color: transparent;
+      cursor: pointer;
+      border: 1px solid #2C2C2C;
+      border-radius: 50%;
+      position: relative;
+      transition: var(--transition);
+      &:hover {
+        border-color: var(--brand-cypher);
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 12px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--brand-cypher);
+        opacity: 0;
+        transition: var(--transition);
+      }
+    }
+  }
+}

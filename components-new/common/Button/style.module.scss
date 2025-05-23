@@ -1,0 +1,112 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	cursor: pointer;
+	font-family: var(--font-geist);
+	font-size: 1rem;
+	font-weight: 500;
+	color: #02090C;
+	background-color: transparent;
+	border: 0;
+	height: 40px;
+	padding: 0 24px;
+	position: relative;
+	z-index: 1;
+	transition: var(--transition);
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		height: 100%;
+		transition: var(--animation-primary);
+	}
+	&:before {
+		background-color: var(--brand-cypher);
+		width: 100%;
+		left: 0;
+	}
+	&:after {
+		background-color: #34C477;
+		width: 0;
+		right: 0;
+	}
+	&:not(.isDisabled):hover:after {
+		left: 0;
+		width: 100%;
+	}
+
+	// Types
+	&.isSecondary {
+		color: var(--brand-cypher);
+		border: 1px solid rgba(#55F89F, .3);
+		&:before, &:after {
+			display: none;
+		}
+		&:not(.isDisabled):hover {
+			border-color: var(--brand-cypher);
+		}
+	}
+
+	&.isDisabled {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+
+	&.isLoading {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	// Sizes
+	&.sizeXS {
+		font-size: .875rem;
+		height: 28px;
+		padding-inline: 12px;
+	}
+
+	&.sizeSM {
+		height: 36px;
+		padding-inline: 20px;
+	}
+
+	&.sizeLG {
+		height: 48px;
+		padding-inline: 40px;
+	}
+
+	@include media($phone) {
+		font-size: .875rem;
+		height: 36px;
+		padding: 0 16px;
+
+		&.sizeLG {
+			height: 44px;
+			padding-inline: 24px;
+		}
+	}
+
+}
+
+
+.spinner {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(#FFF, .4) rgba(#FFF, .4) rgba(#FFF, .4) var(--black);
+	animation: loading .6s linear infinite;
+}
+
+@keyframes loading {
+	to {
+		transform: rotate(360deg);
+	}
+}

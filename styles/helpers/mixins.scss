@@ -1,0 +1,39 @@
+/* Font-Face Mixin */
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $stretch: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    font-stretch: $stretch;
+    font-display: swap;
+    src: url('#{$file-path}.woff') format('woff');
+  }
+}
+
+/* Media Queries Mixin */
+@mixin media($width) {
+  @media only screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin box-sides() {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    background-color: #111111;
+    border: 1px solid #2C2C2C;
+    border-bottom: 0;
+    height: 8px;
+  }
+  &:before {
+    left: 16px;
+    right: 16px;
+    bottom: calc(100% + 1px);
+  }
+  &:after {
+    left: 32px;
+    right: 32px;
+    bottom: calc(100% + 9px);
+  }
+}

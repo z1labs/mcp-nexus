@@ -1,0 +1,299 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 16px;
+  @include media($tablet) {
+    padding-top: 0;
+    [class="container"] {
+      padding-inline: 0;
+    }
+  }
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  @include media($tablet) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}
+
+.block {
+  flex: 1;
+  max-width: 552px;
+  padding: 12px 12px 20px;
+  background-color: var(--brand-cypher);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  clip-path: polygon(0 0, 60% 0, calc(60% + 5px) 5px, calc(60% + 50px) 5px, calc(60% + 55px) 0, 100% 0, 100% 100%, 232px 100%, 225px calc(100% - 7px), 115px calc(100% - 7px), 108px 100%, 16px 100%, 0 calc(100% - 16px));
+  position: relative;
+  &.isOpened {
+    clip-path: polygon(0 0, 60% 0, calc(60% + 5px) 5px, calc(60% + 50px) 5px, calc(60% + 55px) 0, 100% 0, 100% 100%, 0 100%);
+  }
+  @include media($laptop-small) {
+    max-width: 412px;
+  }
+  @include media($tablet) {
+    max-width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 232px 100%, 225px calc(100% - 7px), 115px calc(100% - 7px), 108px 100%, 16px 100%, 0 calc(100% - 16px));
+    &.isOpened {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 52px;
+  span {
+    font-family: var(--font-geist);
+    font-size: .875rem;
+    line-height: 1.05;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  @include media($tablet) {
+    gap: 20px;
+    img {
+      width: 40px;
+      aspect-ratio: 1;
+    }
+  }
+}
+
+.btnToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+  background-color: transparent;
+  border-left: 1px dashed var(--black);
+  cursor: pointer;
+  &:not(.isPressed):hover span {
+    &:nth-child(1) {
+      top: calc(50% - 6px);
+    }
+    &:nth-child(3) {
+      top: calc(50% + 6px);
+    }
+  }
+  &.isPressed span {
+    &:nth-child(1) {
+      top: 50%;
+      rotate: 225deg;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      top: 50%;
+      rotate: -225deg;
+    }
+  }
+  span {
+    display: block;
+    width: 34px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    left: calc(50% - 17px);
+    transition: var(--transition);
+    &:nth-child(1) {
+      top: calc(50% - 4px);
+    }
+    &:nth-child(2) {
+      top: 50%;
+    }
+    &:nth-child(3) {
+      top: calc(50% + 4px);
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  padding-top: 1px;
+
+  .buttonsReg{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  @include media($tablet) {
+    padding-inline: 8px;
+    a {
+      flex: 0 0 .85;
+    }
+    button {
+      flex: 1;
+    }
+  }
+
+  .connectedBtn{
+    min-width: 190px;
+    @include media($phone) {
+      min-width: unset;
+    }
+  }
+
+  @include media($phone) {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .buttonsReg{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% - 8px);
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  padding: 22px 40px 40px;
+  pointer-events: none;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: var(--transition);
+  &.isOpened {
+    pointer-events: all;
+    transform: scaleY(1);
+    .menuList {
+      opacity: 1;
+      transition-delay: .3s;
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    width: 100%;
+    height: 23px;
+    background-color: var(--brand-cypher);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 232px 100%, 225px calc(100% - 7px), 115px calc(100% - 7px), 108px 100%, 16px 100%, 0 calc(100% - 16px));
+  }
+  @include media($tablet) {
+    top: calc(100% - 52px);
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.menuList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 46px;
+  counter-reset: menu-list;
+  opacity: 0;
+  transition: var(--transition);
+  & > li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    &:before {
+      counter-increment: menu-list;
+      content: '0'counter(menu-list);
+      font-family: var(--font-geistmono);
+      font-size: .875rem;
+      line-height: 1.25;
+      font-weight: 500;
+      color: var(--black);
+      position: absolute;
+      top: 0;
+      right: calc(100% + 10px);
+    }
+    & > span {
+      display: block;
+      font-family: var(--font-alliance);
+      line-height: 1.2;
+      font-weight: 300;
+      color: var(--black);
+      text-transform: uppercase;
+      margin-left: 24px;
+    }
+  }
+  @include media($tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media($phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menuNav {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  li:not(:last-child) {
+    margin-bottom: 4px;
+  }
+  ul {
+    margin: 0 0 4px;
+    padding: 0 0 0 24px;
+    list-style: none;
+  }
+  a {
+    display: block;
+    font-family: var(--font-geist);
+    line-height: 1.25;
+    color: var(--black);
+    padding: 12px 24px;
+    background-color: transparent;
+    &:hover {
+      background-color: rgba(var(--black-rgb), .06);
+    }
+    b {
+      display: block;
+      font-weight: 700;
+    }
+    span {
+      display: block;
+      margin-top: 4px;
+      font-size: .875rem;
+    }
+  }
+}
+
+.socials {
+  margin-top: auto;
+  @include media($tablet) {
+    margin-top: 32px;
+  }
+}

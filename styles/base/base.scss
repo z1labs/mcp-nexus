@@ -1,0 +1,48 @@
+/* Base Elements */
+
+html {
+  line-height: 1.2;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--body-color);
+  font-family: var(--font-geist);
+  font-size: 1rem;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--body-bg-cypher);
+  min-height: 100vh;
+  position: relative;
+  //transition: var(--transition);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1240px;
+  padding: 0 56px;
+  margin: 0 auto;
+  @include media($tablet) {
+    padding: 0 32px;
+  }
+  //@include media($phone) {
+  //  padding: 0 16px;
+  //}
+}
+
+.container {
+  width: 100%;
+  max-width: 1680px;
+  padding-inline: 72px;
+  margin-inline: auto;
+  @include media($desktop-middle) {
+    padding-inline: 32px;
+  }
+  @include media($phablet) {
+    padding-inline: 16px;
+  }
+}

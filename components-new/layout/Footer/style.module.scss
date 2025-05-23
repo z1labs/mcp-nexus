@@ -1,0 +1,129 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.footer {
+  //margin-top: 160px;
+  padding: 56px 0 152px;
+  background-color: var(--body-bg-cypher);
+  [class="container"] {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  @include media($tablet) {
+    [class="container"] {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+  @include media($phone) {
+    padding: 52px 0;
+  }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  max-width: 320px;
+  @include media($tablet) {
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  @include media($phone) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+}
+
+.logo {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 28px;
+  align-items: center;
+  a {
+    display: block;
+    font-size: 0;
+  }
+  span {
+    display: block;
+    font-family: var(--font-geist);
+    font-size: .875rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  small {
+    display: block;
+    margin-top: 7px;
+    font-family: var(--font-geist);
+    font-size: .8125rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: rgba(#ACACAC, .4);
+  }
+}
+
+.socials {
+  margin-top: 67px;
+  @include media($tablet) {
+    margin-top: 0;
+  }
+}
+
+.menu {
+  flex: 1;
+  min-width: 0;
+  max-width: 856px;
+  @include media($desktop-small) {
+    max-width: 656px;
+  }
+  @include media($tablet) {
+    max-width: 100%;
+  }
+}
+
+.menuList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  & > li {
+    & > span {
+      display: block;
+      font-family: var(--font-alliance);
+      line-height: 1.2;
+      font-weight: 300;
+      color: rgba(#ACACAC, .8);
+    }
+    & > ul {
+      margin: 48px 0 0;
+      padding: 0;
+      list-style: none;
+      font-family: var(--font-geist);
+      line-height: 1.25;
+      li:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      a:hover {
+        color: var(--brand-cypher);
+      }
+      ul {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+    }
+  }
+  @include media($phone) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 72px 24px;
+  }
+}

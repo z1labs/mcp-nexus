@@ -1,0 +1,37 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.logo {
+  font-size: 0;
+  [data-element] {
+    transform-box: fill-box;
+  }
+  &:hover [data-element] {
+    animation: rotate 1.5s ease-in-out forwards;
+    &:nth-child(1) {
+      transform-origin: 22px 21px;
+    }
+    &:nth-child(2) {
+      transform-origin: 9.5px 10px;
+      animation-delay: .3s;
+    }
+    &:nth-child(3) {
+      animation-direction: reverse;
+      transform-origin: 15px 15px;
+      animation-delay: .15s;
+    }
+  }
+  @include media($tablet) {
+    width: 42px;
+    overflow: hidden;
+  }
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}

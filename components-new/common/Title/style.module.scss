@@ -1,0 +1,98 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.title {
+	--line-height: 1.05;
+	--adapted-line-height: max(1.25em, calc(var(--line-height)* 1em));
+	margin: 0;
+	font-family: var(--font-alliance);
+	font-size: 4rem;
+	line-height: var(--line-height);
+	font-weight: 300;
+	color: var(--body-color);
+	opacity: 0;
+	&.noFade {
+		opacity: 1;
+	}
+	&.isVisible {
+		opacity: 1;
+		[class="char"] {
+			transform: translateY(0) skewY(0deg);
+		}
+	}
+	&.tac {
+		text-align: center;
+	}
+	&.h1 {
+		font-size: 8.5rem;
+	}
+	&.h2 {
+		font-size: 4rem;
+		//&.pageTitle {
+		//	font-size: 4rem;
+		//}
+	}
+	&.h3 {
+		font-size: 2.5rem;
+		//&.pageTitle {
+		//	font-size: 2.5rem;
+		//}
+	}
+	&.h4 {
+		font-size: 1.6875rem;
+		line-height: 1.2;
+		//&.pageTitle {
+		//	font-size: 1.6875rem;
+		//}
+	}
+	&.h5 {
+		font-size: 1.25rem;
+		line-height: 1.2;
+	}
+	&.h6 {
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+	&.pageTitle {
+		font-size: 5.5rem;
+	}
+	[class="word"] {
+		clip-path: inset(calc(var(--line-height)* 1em - var(--adapted-line-height)) -.5em calc(var(--line-height)* 1em - var(--adapted-line-height)) -.5em);
+	}
+	[class="char"] {
+		transform: translateY(150%) skewY(60deg);
+		transition: var(--animation-smooth);
+		@for $i from 1 through 20 {
+			&:nth-child(#{$i}) {
+				transition-delay: $i * .025s;
+			}
+		}
+	}
+	@include media($desktop-small) {
+		&.h1 {
+			font-size: 6rem;
+		}
+		&.h2 {
+			font-size: 3rem;
+		}
+		&.h3 {
+			font-size: 1.75rem;
+		}
+		&.h4 {
+			font-size: 1.5rem;
+		}
+	}
+	@include media($laptop-small) {
+		&.h1 {
+			font-size: 4.5rem;
+		}
+		&.h2 {
+			font-size: 2.25rem;
+		}
+	}
+	@include media($phablet) {
+		&.h1 {
+			font-size: 3.25rem;
+		}
+	}
+}

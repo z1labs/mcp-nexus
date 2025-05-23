@@ -1,0 +1,89 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.block {
+  font-family: var(--font-geist);
+  line-height: 1.5;
+  font-weight: 300;
+  color: #ACACAC;
+  opacity: 0;
+  transition: var(--transition);
+  &.inView {
+    opacity: 1;
+    [class="word"] {
+      opacity: 1;
+    }
+  }
+  &.noFade {
+    opacity: 1;
+  }
+  &.tac {
+    text-align: center;
+  }
+  &.sizeXL {
+    font-size: 1.75rem;
+    line-height: 1.35;
+  }
+  &.sizeMD {
+    font-size: 1.25rem;
+  }
+  &.sizeSM {
+    font-size: 1rem;
+  }
+  &.sizeXS {
+    font-size: .8125rem;
+  }
+  b, strong {
+    font-weight: 700;
+  }
+  p {
+    margin: 0 0 24px;
+  }
+  a {
+    color: var(--brand-cypher);
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    &:hover {
+      &:after {
+        translate: 2px -2px;
+      }
+    }
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 10px;
+      aspect-ratio: 1;
+      margin: -2px 0 0 12px;
+      background: url('/img/pages/homepage/icon-arrow-out.svg') no-repeat center / cover;
+      translate: 0 0;
+      transition: var(--transition);
+    }
+  }
+  [class="word"] {
+    opacity: 0;
+    will-change: opacity;
+    transition: var(--animation-smooth);
+    @for $i from 1 through 100 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * .025s;
+      }
+    }
+  }
+  & > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  @include media($desktop-small) {
+    &.sizeXL {
+      font-size: 1.5rem;
+    }
+  }
+  @include media($phablet) {
+    &.sizeXL {
+      font-size: 1.25rem;
+    }
+    &.sizeMD {
+      font-size: 1rem;
+    }
+  }
+}

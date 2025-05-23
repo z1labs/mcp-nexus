@@ -1,0 +1,25 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.section {
+  margin-top: 92px;
+  padding: 98px 0 116px;
+  position: relative;
+  background: url('/img/pages/about/bg-vision.svg') no-repeat center top;
+}
+
+.description {
+  margin: 24px auto 0;
+  max-width: 756px;
+  strong {
+    color: var(--white);
+  }
+}
+
+.buttons {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
