@@ -1,0 +1,25 @@
+export default function CustomActiveDot(props) {
+  const { cx, cy } = props;
+
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      x={cx - 10}
+      y={cy - 10}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="10"
+        cy="10"
+        r="8.5"
+        fill="#0B0B0B"
+        stroke="#54F59D"
+        strokeWidth="3"
+      />
+      <circle cx="10" cy="10" r="2" fill="#54F59D" />
+    </svg>
+  );
+}

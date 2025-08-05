@@ -1,0 +1,27 @@
+@import "styles/helpers/vars";
+@import "styles/helpers/mixins";
+
+.section {
+  padding: 208px 0 118px;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('/img/pages/dashboard/bg-hero.svg') no-repeat top 62px center;
+  }
+  @include media($tablet) {
+    &:before {
+      background-size: contain;
+      background-position: top 35% center;
+    }
+  }
+}
+
+.description {
+  margin-top: 48px;
+}
