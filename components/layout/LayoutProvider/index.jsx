@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 import Providers from "@/components/layout/Providers";
-import Header from "@/components-new/layout/Header";
-import Footer from "@/components-new/layout/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 import "@/styles/styles.scss";
 
