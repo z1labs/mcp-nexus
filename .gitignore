@@ -32,4 +32,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.idea
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.iml
+.atom/
+*.code-workspace
